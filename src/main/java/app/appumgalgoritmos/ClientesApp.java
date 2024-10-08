@@ -138,12 +138,10 @@ String continuar;
                                         System.out.println("Opcion invalida");
                                         break;
                                     }
-//                        linea = datos[0] + "|" + datos[1] + "|" + datos[2] + "|" + datos[3] + "|" + datos[4] + "|" + datos[5] ;
                             
                             }
                         bw.write(String.join("|",datos) + "\n");   
                         }
-                      
                         bw.close();
                         br.close();
                         
@@ -163,12 +161,15 @@ String continuar;
                         File fc = new File("Clientes_copia.txt");
                         FileWriter fw = new FileWriter(fc);
                         BufferedWriter bw = new BufferedWriter(fw);
-                        
+                        Scanner EliminarDatos = new Scanner(System.in);
                         String linea = "";
+                        System.out.println("Ingrese el DPI del usuario a eliminar");
+                        String eliminaRegistro = EliminarDatos.nextLine();
+                                           
                         
                         while((linea = br.readLine()) != null) {
                             String [] datos = linea.split("\\|");
-                            if (datos[0].compareTo("2693277970115") != 0) {
+                            if (datos[0].compareTo(eliminaRegistro) != 0) {
                                 bw.write(linea+"\n");
                             }
                         } 

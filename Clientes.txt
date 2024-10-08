@@ -1,3 +1,4 @@
-2693277970115|Waldemar|Hernandez|29|M|Ingeniero
 1234568111861|Kimberly|Galvez|29|F|Auditora
 4589259871512|Juan|Colindres|35|M|Contador
+1315678941512|Marcos|Galindo|40|M|Analista de Negocios
+2693277970115|Erick|Hernandez|29|M|Ingeniero
