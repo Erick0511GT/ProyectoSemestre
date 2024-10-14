@@ -1,0 +1,5 @@
+00001|Importadora Express S.A.|5ta avenida 6-87 zona 10, Ciudad de Guatemala|L|6636-2525
+00002|Intelaf, S.A.|6ta. calle 8-60, zona 9, ciudad de Guatemala|L|6636-7840
+00003|China Depot, S.A.|33 calle 8-75 zona 2 Mixco, Guatemala|E|2233-8965
+00004|Llanresa, S.A.|6ta calle 5-71 zona 7, Kaminal Juyu 2, Guatemala|L|5435-7852
+00005|Globomania, S.A.|11 calle 5-74 zona 9, Ciudad de Guatemala|L|2200-8888
