@@ -1,0 +1,41 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'22'
+-sourcepath
+'C:/Users/steve/OneDrive/Escritorio/Sapolio/UMG/2 SEMESTRE/ALGORITMOS/PROYECTO/AppUmgAlgoritmos/AppUmgProyecto/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/steve/OneDrive/Escritorio/Sapolio/UMG/2 SEMESTRE/ALGORITMOS/PROYECTO/AppUmgAlgoritmos/AppUmgProyecto/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'AppUmgProyecto 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'AppUmgProyecto 1.0-SNAPSHOT API'
+app.appumgproyecto
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\src\main\java = 1728833635703
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\allclasses-index.html = 1728869367796
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\allpackages-index.html = 1728869367800
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\element-list = 1728869367736
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\help-doc.html = 1728869367831
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\index-all.html = 1728869367818
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\index.html = 1728869367823
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\member-search-index.js = 1728869367805
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\module-search-index.js = 1728869367802
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\overview-tree.html = 1728869367779
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\package-search-index.js = 1728869367803
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\search.html = 1728869367821
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\tag-search-index.js = 1728869367806
+C:\Users\steve\OneDrive\Escritorio\Sapolio\UMG\2 SEMESTRE\ALGORITMOS\PROYECTO\AppUmgAlgoritmos\AppUmgProyecto\target\reports\apidocs\type-search-index.js = 1728869367804

@@ -1,0 +1,6 @@
+2693277970115|Erick|Hernandez|M|29|Ingeniería
+1655687950115|Andrea|Lopez|F|25|Maestra
+4569148970101|Ramona|Grande|F|41|Contadora
+2681727490101|Kimberly|Galvez|F|29|Auditora
+1235786510115|Filomena|Gonzalez|F|51|Psicologa
+4525859731012|Armando|Navarro|M|29|Doctor
