@@ -2,13 +2,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>App</groupId>
+<<<<<<< HEAD
     <artifactId>AppUmgProyecto</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+=======
+    <artifactId>AppUmgAlgoritmos</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE220</version>
+        </dependency>
+    </dependencies>
+>>>>>>> 5778e5378a4733499ade2314a2f0c1c655be5f79
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>22</maven.compiler.source>
         <maven.compiler.target>22</maven.compiler.target>
+<<<<<<< HEAD
         <exec.mainClass>app.appumgproyecto.AppUmgProyecto</exec.mainClass>
+=======
+        <exec.mainClass>app.appumgalgoritmos.AppUmgAlgoritmos</exec.mainClass>
+>>>>>>> 5778e5378a4733499ade2314a2f0c1c655be5f79
     </properties>
 </project>
