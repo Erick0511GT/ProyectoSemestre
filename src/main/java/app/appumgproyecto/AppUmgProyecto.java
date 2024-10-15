@@ -34,9 +34,7 @@ public class AppUmgProyecto {
     String continuar; 
     String continuarMenu;
     do {
-        System.out.println("""
-                           BIENVENIDO AL SISTEMA DE INVENTARIOS UMG
-                           """); 
+        System.out.println("BIENVENIDO AL SISTEMA DE INVENTARIOS UMG"); 
        int opcionMenu;
        System.out.println("Seleccione el modulo al que desea ingresar");
        System.out.println("1. Clientes");
@@ -57,6 +55,7 @@ public class AppUmgProyecto {
                     System.out.println("2. Leer registros");
                     System.out.println("3. Actualizar registro");
                     System.out.println("4. Eliminar registro");
+                    System.out.println("5. Descargar reporte a CSV");
                     System.out.print("Seleccione operacion a realizar: ");
                     opcionCliente = scan.nextInt();
                     Scanner scanCliente = new Scanner(System.in);
@@ -85,7 +84,7 @@ public class AppUmgProyecto {
                             } catch (IOException ex) {
                                 Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
                             }
-               }
+                        }
                         case 2 -> { //Aqui se manda a llamar los datos del archivo.
                             try {
                                 FileReader fr = new FileReader(f);
@@ -202,13 +201,47 @@ public class AppUmgProyecto {
                                 Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
                               }
                         }
+                        case 5 -> { // Se realiza el reporte de CSV
+                            try {
+                                FileReader fr = new FileReader(f);
+                                BufferedReader br = new BufferedReader(fr);
+                                File fc = new File("Clientes_Reporte.csv");
+                                FileWriter fw = new FileWriter(fc);
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                String lineaEncabezado = "DPI|Nombre|Apellido|Genero|Edad|Profesion";
+                                String linea = "";
+                                bw.write(lineaEncabezado+"\n");
+                                while((linea = br.readLine()) != null) {
+                                    String [] datos = linea.split("\\|");
+                                    if (datos != null) {
+                                    bw.write(linea+"\n");
+                                    }
+                                }
+                                bw.close();
+                                br.close();
+
+                                Files.copy(fc.toPath(), fc.toPath(),REPLACE_EXISTING);
+                                System.out.println("El reporte fue realizado con éxito. Por favor validar");
+                                
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IOException ex) {
+                                Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
+                              }
+                        }
                         default -> { // En caso no coloque los numeros indicados
                             System.out.println("Opción incorrecta. Ingrese una opción válida.");
+                            
                         }
                     }
                     System.out.print("¿Desea realizar otra operacion en la ventana clientes? (s/n): ");
                     continuar = teclado.nextLine();
+                   
                 } while (continuar.equalsIgnoreCase("s"));
+                if (!continuar.equalsIgnoreCase("s")){
+                    break;
+                } // se cierra el ciclo de clientes
+               
             case 2: // Se inicia el modulo de Proveedores
                System.out.println("Bienvenidos al modulo de Proveedores");        
                int opcionProveedor;
@@ -219,6 +252,7 @@ public class AppUmgProyecto {
                 System.out.println("2. Leer registros");
                 System.out.println("3. Actualizar registro");
                 System.out.println("4. Eliminar registro");
+                System.out.println("5. Descargar reporte CSV");
                 System.out.print("Seleccione operacion a realizar: ");
                 opcionProveedor = scan.nextInt();
                 Scanner scanProveedor = new Scanner(System.in);
@@ -355,18 +389,51 @@ public class AppUmgProyecto {
                             Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
+                    case 5 -> { // Se realiza el reporte de CSV
+                            try {
+                                FileReader fr = new FileReader(p);
+                                BufferedReader br = new BufferedReader(fr);
+                                File fp = new File("Proveedores_Reporte.csv");
+                                FileWriter fw = new FileWriter(fp);
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                String lineaEncabezado = "codigo|NombreProveedor|Direccion|Tipo|Telefono";
+                                String linea = "";
+                                bw.write(lineaEncabezado+"\n");
+                                while((linea = br.readLine()) != null) {
+                                    String [] datos = linea.split("\\|");
+                                    if (datos != null) {
+                                    bw.write(linea+"\n");
+                                    }
+                                }
+                                
+                                bw.close();
+                                br.close();
+
+                                Files.copy(fp.toPath(), fp.toPath(),REPLACE_EXISTING);
+                                System.out.println("El reporte fue realizado con éxito. Por favor validar");
+                                
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IOException ex) {
+                                Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
+                              }
+                        }
                     default -> {//se envia una impresion de que el dato ingresado no es valido
                         System.out.println("Opción incorrecta. Ingrese una opción válida");
                     }        
-                 }
+                }
                 System.out.print("¿Desea realizar otra operacion en la vista de Proveedores? (s/n): ");
                 continuar = teclado.nextLine();
+
                }while (continuar.equalsIgnoreCase("s"));
-            case 3:
-                System.out.println("Bienvenidos al modulo de Productos");
+                if (!continuar.equalsIgnoreCase("s")){
+                break;
+                }
+            case 3: // Se inicia el modulo de Productos
+                System.out.println("Bienvenidos al modulo de Productos!!!!");
                 int opcionProducto;
                 File pR = new File("Productos.txt");
-                
+                File cF = new File("Categorias.txt");
                 do{        
                    System.out.println("1. Agregar registro");
                    System.out.println("2. Leer registros");
@@ -381,25 +448,104 @@ public class AppUmgProyecto {
                         case 1 -> {
                             FileWriter fw = new FileWriter(pR,true);
                             BufferedWriter bw = new BufferedWriter(fw);
-                            System.out.println("Ingrese el codigo de Proveedor");
-                            String codigoProveedor = scanIdProducto.nextLine();
-                            System.out.println("Ingrese el Nombre o Razon Social del proveedor");
-                            String nombreProveedor = scanProducto.nextLine();
-
+                            System.out.println("Ingrese el codigo de Categoria para crear el producto");
+                            String codigoCatogoria = scanIdProducto.nextLine();
+                            System.out.println("Ingrese el nombre del Producto");
+                            String nombreProducto = scanProducto.nextLine();
                             bw.close();
                             fw.close();
-                            
+                        }
+                        case 5 -> { 
+                                   do{
+                                    Scanner scancategoria = new Scanner(System.in);
+                                    System.out.println("Bienvenido a las categorias!!!!!");
+                                    System.out.println("1. Agregar registro");
+                                    System.out.println("2. Leer registros");
+                                    System.out.println("3. Actualizar registro");
+                                    System.out.println("4. Eliminar registro");
+                                    System.out.println("5. Descargar archivo CSV");
+                                    int opcionCategoria;
+                                    System.out.println("Escriba el numero de opcion que desea elegir: ");
+                                    opcionCategoria = scan.nextInt();
+                                    switch (opcionCategoria) {
+                                        case 1 -> {
+                                            try (FileWriter fw = new FileWriter(cF,true); 
+                                                BufferedWriter bw = new BufferedWriter(fw)) {
+                                                System.out.println("Ingrese el codigo de Categoria");
+                                                String codigoCategoria = scancategoria.nextLine();
+                                                System.out.println("Ingrese el Prefijo de la Categoria");
+                                                String prefijoCategoria = scancategoria.nextLine();
+                                                System.out.println("Ingrese la descripcion de la Categoria");
+                                                String descCategoria = scancategoria.nextLine();
+                                                bw.write(codigoCategoria +"|"+prefijoCategoria+"|"+descCategoria+"\n");
+                                            }
+                                        }
+
+                                        case 2 -> {
+                                            try (FileReader fr = new FileReader(cF); 
+                                                BufferedReader br = new BufferedReader(fr)) {
+                                                String linea = "";
+                                                while((linea = br.readLine()) != null) {
+                                                    System.out.println(linea);
+                                                }
+                                            }
+                                        }
+
+                                        case 3 -> {                        
+                                            FileReader fr = new FileReader(cF);
+                                            BufferedReader br = new BufferedReader(fr);
+                                            File cfc = new File("Categoria_copia.txt");
+                                            FileWriter fw = new FileWriter(cfc);
+                                            BufferedWriter bw = new BufferedWriter(fw);
+                                            Scanner cambioDatos = new Scanner(System.in);
+                                            String linea;
+                                            System.out.println("Ingrese el codigo de Categoria");
+                                            String codigoCategoria = cambioDatos.nextLine();
+                                            while((linea = br.readLine()) != null) {
+                                                String [] datos = linea.split("\\|");
+                                                if (datos[0].compareTo(codigoCategoria) == 0) {
+                                                    System.out.println(linea);
+                                                    Scanner tecladoCambio = new Scanner(System.in);
+                                                    System.out.println("Que desea realizar");
+                                                    System.out.println("1. Cambiar prefijo");
+                                                    System.out.println("2. Cambiar Descripcion");
+                                                    int opcionCambioProveedor = tecladoCambio.nextInt();
+                                                    switch (opcionCambioProveedor){
+                                                        case 1 -> {
+                                                            System.out.println("Ingrese el nuevo Prefijo de la categoria: ");
+                                                            String nuevoPrefijo = cambioDatos.nextLine();
+                                                            datos[1]= nuevoPrefijo;
+                                                        }
+                                                        case 2 -> {
+                                                            System.out.println("Ingrese la nueva Descripcion de la categoria: ");
+                                                            String nuevaDescripcion = cambioDatos.nextLine();
+                                                            datos[2] = nuevaDescripcion;
+                                                        }
+                                                        default -> System.out.println("Opcion invalida");
+                                                    }
+                                                }
+                                                bw.write(String.join("|",datos) + "\n");
+                                            }
+                                            bw.close();
+                                            br.close();
+                                            Files.move(cfc.toPath(), cF.toPath(), REPLACE_EXISTING);
+                                        }
+                                    }
+                                       System.out.println("desea realizar otra operacion en Categorias s/n");
+                                       continuar = teclado.nextLine();
+                                    } while(continuar.equalsIgnoreCase("s"));
+                                    if (!continuar.equalsIgnoreCase("s")){
+                                    break;
+                                    }
                         }
                     }
-                    System.out.println("Desea realizar otra operacion en la vista de Productos s/n");
-                    continuar = teclado.nextLine();
                     
-                }while (continuar.equalsIgnoreCase("s"));
+                System.out.println("Desea realizar otra operacion en la vista de Productos s/n");
+                continuar = teclado.nextLine();
+                } while (continuar.equalsIgnoreCase("s"));
                 if (!continuar.equalsIgnoreCase("s")){
-                break;
+                    break;
                 }
-      
-     
             default: System.out.println("Opcion incorrecta. Por favor ingrese una opción válida.");
                
         }
