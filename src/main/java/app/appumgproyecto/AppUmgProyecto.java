@@ -100,7 +100,7 @@ public class AppUmgProyecto {
                             } catch (IOException ex) {
                                 Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
                             }
-               }
+                        }
                         case 3 -> { // Se realiza la modificacion por el dato que elija el usuario
                             try {
                                 FileReader fr = new FileReader(f);
