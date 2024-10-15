@@ -1,0 +1,4 @@
+C00001|Calzado para Caballero|Calzado
+C00002|Calzado para Dama|Calzado
+R00001|Blusa para Dama|Ropa
+H00001|Estufa Electrica|Hogar

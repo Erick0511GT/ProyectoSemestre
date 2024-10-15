@@ -85,7 +85,7 @@ public class AppUmgProyecto {
                                 Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
-                        case 2 -> { //Aqui se manda a llamar los datos del archivo.
+                        case 2 -> { //Aqui se manda a llamar todos los datos del archivo.
                             try {
                                 FileReader fr = new FileReader(f);
                                 BufferedReader br = new BufferedReader(fr);
@@ -234,12 +234,14 @@ public class AppUmgProyecto {
                             
                         }
                     }
+                    
                     System.out.print("¿Desea realizar otra operacion en la ventana clientes? (s/n): ");
                     continuar = teclado.nextLine();
-                   
+                    scanCliente.close();
                 } while (continuar.equalsIgnoreCase("s"));
                 if (!continuar.equalsIgnoreCase("s")){
                     break;
+                    
                 } // se cierra el ciclo de clientes
                
             case 2: // Se inicia el modulo de Proveedores
@@ -258,8 +260,7 @@ public class AppUmgProyecto {
                 Scanner scanProveedor = new Scanner(System.in);
                 Scanner scanidProveedor = new Scanner(System.in);
                 switch (opcionProveedor) {
-                    case 1 -> {
-                        //Se llenan los datos del Proveedor
+                    case 1 -> {//Se llenan los datos del Proveedor
                         try {
                             FileWriter fw = new FileWriter(p,true);
                             BufferedWriter bw = new BufferedWriter(fw);
@@ -279,8 +280,7 @@ public class AppUmgProyecto {
                             Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                    case 2 -> {
-                        // Se llaman todos los datos del archivo
+                    case 2 -> {// Se llaman todos los datos del archivo de Proveedores
                         try {
                             FileReader fr = new FileReader(p);
                             BufferedReader br = new BufferedReader(fr);
@@ -296,8 +296,7 @@ public class AppUmgProyecto {
                             Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                    case 3 -> {
-                        // Se solicita cambiar segun la opción que elija el usuario
+                    case 3 -> {// Se solicita cambiar algun campo segun la opción que elija el usuario
                         try {
                             FileReader fr = new FileReader(p);
                             BufferedReader br = new BufferedReader(fr);
@@ -389,7 +388,7 @@ public class AppUmgProyecto {
                             Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                    case 5 -> { // Se realiza el reporte de CSV
+                    case 5 -> { // Se realiza el reporte de CSV de Proveedores
                             try {
                                 FileReader fr = new FileReader(p);
                                 BufferedReader br = new BufferedReader(fr);
@@ -428,7 +427,8 @@ public class AppUmgProyecto {
                }while (continuar.equalsIgnoreCase("s"));
                 if (!continuar.equalsIgnoreCase("s")){
                 break;
-                }
+                } // se cierra el ciclo de Proveedores al presionar cualquier letra que no sea s
+                
             case 3: // Se inicia el modulo de Productos
                 System.out.println("Bienvenidos al modulo de Productos!!!!");
                 int opcionProducto;
@@ -444,18 +444,51 @@ public class AppUmgProyecto {
                     opcionProducto = scan.nextInt();
                     Scanner scanProducto = new Scanner(System.in);
                     Scanner scanIdProducto = new Scanner(System.in);
-                    switch (opcionProducto){
+                    switch (opcionProducto){ //Aqui inicial el modulo de productos
                         case 1 -> {
+                            FileReader fr = new FileReader(cF);
+                            BufferedReader br = new BufferedReader(fr);
                             FileWriter fw = new FileWriter(pR,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             System.out.println("Ingrese el codigo de Categoria para crear el producto");
-                            String codigoCatogoria = scanIdProducto.nextLine();
-                            System.out.println("Ingrese el nombre del Producto");
-                            String nombreProducto = scanProducto.nextLine();
+                            String linea;
+                            String codigoCategoria = scanIdProducto.nextLine();
+                            while ((linea = br.readLine()) !=null){
+                                String [] datos = linea.split("\\|");
+                                if (datos[0].compareTo(codigoCategoria) == 0){
+                                    System.out.println(datos[1]+"|"+datos[2]);
+                                    System.out.println("Ingrese el codigo del Producto");
+                                    String codigoProducto = scanProducto.nextLine();
+                                    System.out.println("Ingrese el nombre del producto");
+                                    String nombreProducto = scanProducto.nextLine();
+                                    bw.write(datos[1]+codigoProducto+"|"+nombreProducto+"|"+datos[2]+"\n");
+                                    
+                                }
+                                
+                            }
+                            
+//                            
+//                            System.out.println("Ingrese el codigo del Producto");
+//                            String codigoProducto = scanProducto.nextLine();
+//                            System.out.println("Ingrese el nombre del producto");
+//                            String nombreProducto = scanProducto.nextLine();
+//                            bw.write(codigoProducto+"|"+nombreProducto+"|"+"\n");
                             bw.close();
                             fw.close();
+                           
                         }
-                        case 5 -> { 
+                        case 2 -> {//lectura archivo productos
+                            
+                            try (FileReader fr = new FileReader(pR); 
+                                 BufferedReader br = new BufferedReader(fr)) {
+                                 String linea = "";
+                                 while((linea = br.readLine()) != null) {
+                                    System.out.println(linea);
+                                }
+                                }
+                        }
+                        
+                        case 5 -> { //Aqui se inicia el modulo de categorias, Lo defini aqui para que el usuario sepa que las categorias son de productos
                                    do{
                                     Scanner scancategoria = new Scanner(System.in);
                                     System.out.println("Bienvenido a las categorias!!!!!");
@@ -479,7 +512,7 @@ public class AppUmgProyecto {
                                                 String descCategoria = scancategoria.nextLine();
                                                 bw.write(codigoCategoria +"|"+prefijoCategoria+"|"+descCategoria+"\n");
                                             }
-                                        }
+                                        } // CREAR
 
                                         case 2 -> {
                                             try (FileReader fr = new FileReader(cF); 
@@ -489,7 +522,7 @@ public class AppUmgProyecto {
                                                     System.out.println(linea);
                                                 }
                                             }
-                                        }
+                                        } // LEER
 
                                         case 3 -> {                        
                                             FileReader fr = new FileReader(cF);
@@ -529,6 +562,63 @@ public class AppUmgProyecto {
                                             bw.close();
                                             br.close();
                                             Files.move(cfc.toPath(), cF.toPath(), REPLACE_EXISTING);
+                                        } // ACTUALIZAR
+                                        
+                                        case 4 -> {
+                                            FileReader fr = new FileReader(cF);
+                                            BufferedReader br = new BufferedReader(fr);
+                                            File cfc = new File("Categorias_copia.txt");
+                                            FileWriter fw = new FileWriter(cfc);
+                                            BufferedWriter bw = new BufferedWriter(fw);
+                                            Scanner eliminaDatos = new Scanner(System.in);
+                                            String linea = "";
+                                            System.out.println("Ingrese el codigo de la categoria a eliminar");
+                                            String eliminaRegistro = eliminaDatos.nextLine();
+                                                while((linea = br.readLine()) != null) {
+                                                String [] datos = linea.split("\\|");
+                                                if (datos[0].compareTo(eliminaRegistro) == 0) {
+                                                    System.out.println(linea);
+                                                }
+                                                if (datos[0].compareTo(eliminaRegistro) != 0) {
+                                                    bw.write(linea+"\n");
+                                                }
+                                                }
+                                            bw.close();
+                                            br.close();
+                                            System.out.println("Esta seguro de que quiere eliminar la categoria! s/n");
+                                            String confirmar = eliminaDatos.nextLine();
+                                            if (confirmar.equalsIgnoreCase("s")){
+                                            Files.move(cfc.toPath(), cF.toPath(), REPLACE_EXISTING);
+                                            } else
+                                            break;
+                                        } // ELIMINAR
+                                        
+                                        case 5 -> {
+                                            FileReader fr = new FileReader(cF);
+                                            BufferedReader br = new BufferedReader(fr);
+                                            File cFc = new File("Categorias_Reporte.csv");
+                                            FileWriter fw = new FileWriter(cFc);
+                                            BufferedWriter bw = new BufferedWriter(fw);
+                                            String lineaEncabezado = "codigo|Prefijo|Descripcion";
+                                            String linea = "";
+                                            bw.write(lineaEncabezado+"\n");
+                                            while((linea = br.readLine()) != null) {
+                                                String [] datos = linea.split("\\|");
+                                                if (datos != null) {
+                                                bw.write(linea+"\n");
+                                                }
+                                            }
+                                
+                                            bw.close();
+                                            br.close();
+
+                                            Files.copy(cFc.toPath(), cFc.toPath(),REPLACE_EXISTING);
+                                            System.out.println("El reporte fue realizado con éxito. Por favor validar");
+                                        }  
+                                        
+                                        default ->{
+                                            System.out.println("operación invalida.");
+                                            
                                         }
                                     }
                                        System.out.println("desea realizar otra operacion en Categorias s/n");
