@@ -1,0 +1,4 @@
+1|C|Calzado
+2|R|Ropa
+3|H|Hogar
+4|T|Tecnologia
