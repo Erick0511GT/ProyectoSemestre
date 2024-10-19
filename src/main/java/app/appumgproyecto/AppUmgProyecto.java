@@ -19,7 +19,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -799,7 +798,8 @@ public class AppUmgProyecto {
                                              productoEncontrado = true;
                                                 System.out.println("Producto: " + linea);
                                                 System.out.println("Ingrese la cantidad que aumentará de inventario del artículo:");
-                                                datosProductos[5] += teclado.nextLine();
+                                                
+                                                datosProductos[5] = teclado.nextLine();
                                                 bw.write(codigoEntrada + "|" + codigoProducto + "|" + datosProductos[1] + "|" + datosProductos[5] + "\n");
                                             
                                             }
@@ -825,12 +825,53 @@ public class AppUmgProyecto {
                                             }
                                             
                                     }
+                                    case 2 -> {//lectura archivo de entradas
+                                        try (FileReader fr = new FileReader(entInv); 
+                                            BufferedReader br = new BufferedReader(fr)) {
+                                            String linea = "";
+                                            while((linea = br.readLine()) != null) {
+                                                System.out.println(linea);
+                                            }
+                                            br.close();
+                                            fr.close();
+                                        }
+                                    }
+                                    case 3->{ // Se realiza el reporte de CSV de Productos
+                            try {
+                                FileReader fr = new FileReader(entInv);
+                                BufferedReader br = new BufferedReader(fr);
+                                File fpR = new File("Entradas_Reporte.csv");
+                                FileWriter fw = new FileWriter(fpR);
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                String lineaEncabezado = "NumeroEntrada|codigoProducto|NombreProducto|Ingreso";
+                                String linea = "";
+                                bw.write(lineaEncabezado+"\n");
+                                while((linea = br.readLine()) != null) {
+                                    String [] datos = linea.split("\\|");
+                                    if (datos != null) {
+                                    bw.write(linea+"\n");
+                                    }
+                                }
+                                
+                                bw.close();
+                                br.close();
+
+                                Files.copy(fpR.toPath(), fpR.toPath(),REPLACE_EXISTING);
+                                System.out.println("El reporte fue realizado con éxito. Por favor validar");
+                                
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IOException ex) {
+                                Logger.getLogger(AppUmgProyecto.class.getName()).log(Level.SEVERE, null, ex);
+                              }
+                        }
+                                   
                                     default -> {
                                         System.out.println("Operacion Invalida");
                                     
                                     }
                                 }
-                                System.out.println("desea seguir realizando las opciones en Entradas? s/n");
+                                System.out.println("desea seguir realizando las opciones en Entradas? (s/n): ");
                                 continuar = teclado.nextLine();
                                 } while(continuar.equalsIgnoreCase("s"));
                                 if (!continuar.equalsIgnoreCase("s")){
@@ -838,7 +879,7 @@ public class AppUmgProyecto {
                                 }
                     }
                 }
-              System.out.println("desea seguir en el modulo de Inventarios  s/n");
+              System.out.println("desea seguir en el modulo de Inventarios?  (s/n): ");
               continuar = teclado.nextLine();
             } while(continuar.equalsIgnoreCase("s"));
               if (!continuar.equalsIgnoreCase("s")){
@@ -849,8 +890,8 @@ public class AppUmgProyecto {
                 System.out.println("Bienvenido al modulo de Usuarios");
             
             }
-            default: System.out.println("Opcion incorrecta. Por favor ingrese una opción válida.");
-               
+            default: { System.out.println("Opcion incorrecta. Por favor ingrese una opción válida.");
+            }
         }
      System.out.print("¿Desea realizar otra operacion en la aplicacion? (s/n): ");
      continuarMenu = menu.nextLine();

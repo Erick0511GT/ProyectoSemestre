@@ -1,5 +1,5 @@
-C00001|Calzado para Dama|Calzado|Cafe|Roy|151616
-R00001|Pantalon para Dama|Ropa|Azul|Progresiva|0
+C00001|Calzado para Dama|Calzado|Cafe|Roy|15
+R00001|Pantalon para Dama|Ropa|Azul|Progresiva|40
 H00001|Estufa de Horno|Hogar|Blanco|LG|0
 C00002|Calzado para Caballero|Calzado|Cafe|Adidas|0
 H00002|Lavadora 22Kg|Hogar|Blanco|Whirpool|0
