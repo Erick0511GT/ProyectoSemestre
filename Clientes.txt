@@ -1,7 +1,8 @@
-2693277970115|Erick|Hernandez|M|29|Ingeniería
 1655687950115|Andrea|Lopez|F|25|Maestra
 4569148970101|Ramona|Grande|F|41|Contadora
 2681727490101|Kimberly|Galvez|F|29|Auditora
 1235786510115|Filomena|Gonzalez|F|51|Psicologa
 4525859731012|Armando|Navarro|M|29|Doctor
-1425485860101|Pancrasio|Benavente|M|78|Albañil
+1425485860101|Benavente|Benavente|M|78|Albañil
+2612315150202|Marco|Polo|M|45|Piloto
+2693277970115|Erick|Sulin|M|29|Ingeniero

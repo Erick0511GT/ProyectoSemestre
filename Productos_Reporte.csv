@@ -1,9 +1,9 @@
-C00001|Calzado para Dama|Calzado|Cafe|Roy|151616
+Codigo|NombreProducto|Categoria|Color|Marca|Existencia
+C00001|Calzado para Dama|Calzado|Cafe|Roy|0
 R00001|Pantalon para Dama|Ropa|Azul|Progresiva|0
 H00001|Estufa de Horno|Hogar|Blanco|LG|0
 C00002|Calzado para Caballero|Calzado|Cafe|Adidas|0
 H00002|Lavadora 22Kg|Hogar|Blanco|Whirpool|0
 H00003|Licuadora|Hogar|Negro|LG|0
 A00001|Aretes de Argolla|Accesorios|Gris|Brazilian|0
-C00003|Calzado para niño|Calzado|Cafe|Roy|0
-C00004|Calzado para niña|Calzado|Negro|Penny|15
+C00003|Calzado para ninio|Calzado|Cafe|Roy|0

@@ -4,3 +4,4 @@
 00004|Llanresa, S.A.|6ta calle 5-71 zona 7, Kaminal Juyu 2, Guatemala|L|5435-7852
 00005|Globomania, S.A.|11 calle 5-74 zona 9, Ciudad de Guatemala|L|2200-8888
 00006|calzado Suave, S.A.|6ta calle 0-60 zona 4 Local 110, Ciudad de Guatemala|L|2290-0000
+00007|Calzado Roy|0calle 5-61, zona 9 Ciudad de Guatemala|L|4564-5644

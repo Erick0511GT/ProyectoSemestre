@@ -1,0 +1,6 @@
+1|C00001|Calzado para Dama|15
+1231|C00001|Calzado para Dama|25
+3|C00004|Calzado para niña|15
+C00001|C00001|Calzado para Dama|25
+1602323|C00001|Calzado para Dama|1516
+1351351|C00001|Calzado para Dama|151616
